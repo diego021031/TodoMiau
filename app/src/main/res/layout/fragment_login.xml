@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#03A9F4">
+        android:background="@color/blue">
 
         <ImageView
             android:id="@+id/ivLogIn"
@@ -61,7 +61,7 @@
             android:id="@+id/tfEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Correo: "
+            android:hint="@string/email"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
