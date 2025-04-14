@@ -13,7 +13,7 @@
         android:theme="@style/Theme.TodoMiau"
         tools:targetApi="31">
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".view.OnboardingActivity"
             android:exported="true"
             android:theme="@style/Theme.TodoMiau">
             <intent-filter>
@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="false">
         </activity>
     </application>

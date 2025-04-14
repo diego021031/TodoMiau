@@ -1,6 +1,5 @@
-package com.example.todomiau
+package com.example.todomiau.view
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
+import com.example.todomiau.R
 import com.example.todomiau.databinding.FragmentLoginBinding
 
 
