@@ -1,15 +1,20 @@
 package com.example.todomiau.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.todomiau.R
 import com.example.todomiau.databinding.FragmentLoginBinding
-
+import com.example.todomiau.viewModel.LoginViewModel
+import com.example.todomiau.utils.FragmentCommunicator
+import com.example.todomiau.view.OnboardingActivity
 
 
 /**
@@ -19,10 +24,12 @@ class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     var isValid: Boolean = false
+    private lateinit var communicator: FragmentCommunicator
+    private val viewModel by viewModels<LoginViewModel>()
+
+
 
 
     override fun onCreateView(
@@ -31,7 +38,9 @@ class LoginFragment : Fragment() {
     ): View {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        communicator = requireActivity() as OnboardingActivity
         setupView()
+        setupObservers()
         return binding.root
 
     }
@@ -60,6 +69,20 @@ class LoginFragment : Fragment() {
         }
     }
 
+    private fun setupObservers() {
+        viewModel.loaderState.observe(viewLifecycleOwner) { loaderState ->
+            communicator.showLoader(loaderState)
+        }
+        viewModel.sessionValid.observe(viewLifecycleOwner) { validSession ->
+            if (validSession) {
+                val intent = Intent(activity, MainActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+            } else {
+                Toast.makeText(activity, "Ingreso invalido", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

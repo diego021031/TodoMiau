@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todomiau.R
 import com.example.todomiau.databinding.FragmentRegisterBinding
+import com.example.todomiau.viewModel.RegisterViewModel
+import com.example.todomiau.utils.FragmentCommunicator
+import com.example.todomiau.view.OnboardingActivity
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -22,6 +26,8 @@ class RegisterFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     var isValid: Boolean = false
+    private val viewModel by viewModels<RegisterViewModel>()
+    private lateinit var communicator: FragmentCommunicator
 
 
 
@@ -31,6 +37,7 @@ class RegisterFragment : Fragment() {
     ): View {
 
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        communicator = requireActivity() as OnboardingActivity
         setupView()
         return binding.root
 
@@ -67,8 +74,14 @@ class RegisterFragment : Fragment() {
                isValid = true
            }
        }
-
+       setupObservers()
    }
+
+    private fun setupObservers() {
+        viewModel.loaderState.observe(viewLifecycleOwner) { loaderState ->
+            communicator.showLoader(loaderState)
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
