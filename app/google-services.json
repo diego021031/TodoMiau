@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "728808534535",
+    "project_id": "todomiau-5738b",
+    "storage_bucket": "todomiau-5738b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728808534535:android:58d78716beca85a661b0a2",
+        "android_client_info": {
+          "package_name": "com.example.todomiau"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXxJUjxgf524mYf9Thm41IqAblb8hp9Jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
