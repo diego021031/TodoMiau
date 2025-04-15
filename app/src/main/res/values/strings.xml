@@ -14,7 +14,16 @@
     <string name="register">Registrar</string>
     <string name="restorePassword">Restablecer contraseña</string>
     <string name="descriptionBack">Botón para regresar</string>
+    <string name="descriptionMenu">Botón de menú</string>
+    <string name="descriptionAdd">Botón para añadir</string>
     <string name="registerContinue">Registrate para continuar</string>
+    <string name="pendings">Pendientes</string>
+    <string name="addTask">Agregar tarea</string>
+    <string name="nameTask">Nombre: </string>
+    <string name="descriptionTask">Descripción: </string>
+    <string name="dateTask">Fecha: </string>
+    <string name="addingTask">Agregar</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

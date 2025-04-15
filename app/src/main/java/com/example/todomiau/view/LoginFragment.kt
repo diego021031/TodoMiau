@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
+import com.example.todomiau.ListActivity
 import com.example.todomiau.R
 import com.example.todomiau.databinding.FragmentLoginBinding
 import com.example.todomiau.viewModel.LoginViewModel
@@ -83,7 +84,7 @@ class LoginFragment : Fragment() {
         }
         viewModel.sessionValid.observe(viewLifecycleOwner) { validSession ->
             if (validSession) {
-                val intent = Intent(activity, MainActivity::class.java)
+                val intent = Intent(activity, ListActivity::class.java)
                 startActivity(intent)
                 activity?.finish()
             } else {
