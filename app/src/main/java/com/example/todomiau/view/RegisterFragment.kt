@@ -1,10 +1,12 @@
 package com.example.todomiau.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -48,6 +50,11 @@ class RegisterFragment : Fragment() {
            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
        }
 
+       binding.btRegister.setOnClickListener {
+           viewModel.requestSignUp(binding.tietEmail.text.toString(),
+               binding.tietPassword.text.toString())
+       }
+
        binding.tietName.addTextChangedListener {
            if (binding.tietName.text.toString().isEmpty()) {
                binding.tfName.error = "Por favor introduce tu nombre"
@@ -81,6 +88,16 @@ class RegisterFragment : Fragment() {
         viewModel.loaderState.observe(viewLifecycleOwner) { loaderState ->
             communicator.showLoader(loaderState)
         }
+
+        viewModel.validRegister.observe(viewLifecycleOwner) { validRegister ->
+            if (validRegister) {
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            } else {
+                Toast.makeText(activity, "Ingresa todos los datos", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
     }
 
     override fun onDestroyView() {

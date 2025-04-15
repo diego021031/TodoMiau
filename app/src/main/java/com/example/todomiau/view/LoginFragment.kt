@@ -51,6 +51,14 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
+        binding.btLogIn.setOnClickListener {
+            if (isValid) {
+                requestLogin()
+            } else {
+                Toast.makeText(activity, "Ingrese todos los datos", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         binding.tietEmail.addTextChangedListener {
             if (binding.tietEmail.text.toString().isEmpty()) {
                 binding.tfEmail.error = "Por favor introduce un correo"
@@ -82,6 +90,11 @@ class LoginFragment : Fragment() {
                 Toast.makeText(activity, "Ingreso invalido", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun requestLogin() {
+        viewModel.requestSignIn(binding.tietEmail.text.toString(),
+            binding.tietPassword.text.toString())
     }
 
     override fun onDestroyView() {
