@@ -16,11 +16,15 @@ import com.example.todomiau.databinding.FragmentLoginBinding
 import com.example.todomiau.viewModel.LoginViewModel
 import com.example.todomiau.utils.FragmentCommunicator
 import com.example.todomiau.view.OnboardingActivity
+import dagger.hilt.android.AndroidEntryPoint
+
 
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null

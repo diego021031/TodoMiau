@@ -8,11 +8,15 @@ import androidx.lifecycle.viewModelScope
 import com.example.todomiau.core.ResultWrapper
 import com.example.todomiau.network.UserRepository
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.lifecycle.HiltViewModel
+import jakarta.inject.Inject
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-class LoginViewModel: ViewModel() {
-    private val repository = UserRepository()
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val repository: UserRepository
+): ViewModel() {
     private val _loaderState = MutableLiveData<Boolean>()
     val loaderState: LiveData<Boolean>
         get() = _loaderState

@@ -10,8 +10,10 @@ import com.example.todomiau.databinding.ActivityOnboardingBinding
 import com.example.todomiau.utils.FragmentCommunicator
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class OnboardingActivity : AppCompatActivity(), FragmentCommunicator {
 
     private lateinit var appBarConfiguration: AppBarConfiguration

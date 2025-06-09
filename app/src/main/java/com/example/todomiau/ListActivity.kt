@@ -8,7 +8,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.todomiau.databinding.ActivityListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ListActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -19,10 +21,6 @@ class ListActivity : AppCompatActivity() {
 
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
-
 
     }
 

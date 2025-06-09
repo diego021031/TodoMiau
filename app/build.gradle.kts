@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.services.plugin)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -56,5 +58,7 @@ dependencies {
     implementation(platform(libs.firebase))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
-
+    // Dagger hilt
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
 }

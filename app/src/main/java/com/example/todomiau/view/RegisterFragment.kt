@@ -15,10 +15,13 @@ import com.example.todomiau.databinding.FragmentRegisterBinding
 import com.example.todomiau.viewModel.RegisterViewModel
 import com.example.todomiau.utils.FragmentCommunicator
 import com.example.todomiau.view.OnboardingActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
+
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private var _binding: FragmentRegisterBinding? = null
@@ -90,11 +93,7 @@ class RegisterFragment : Fragment() {
         }
 
         viewModel.validRegister.observe(viewLifecycleOwner) { validRegister ->
-            if (validRegister) {
                 findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-            } else {
-                Toast.makeText(activity, "Ingresa todos los datos", Toast.LENGTH_SHORT).show()
-            }
         }
 
 
