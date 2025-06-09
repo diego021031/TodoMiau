@@ -82,8 +82,8 @@ class LoginFragment : Fragment() {
         viewModel.loaderState.observe(viewLifecycleOwner) { loaderState ->
             communicator.showLoader(loaderState)
         }
-        viewModel.sessionValid.observe(viewLifecycleOwner) { validSession ->
-            if (validSession) {
+        viewModel.sessionValid.observe(viewLifecycleOwner) { sessionValid ->
+            if (sessionValid) {
                 val intent = Intent(activity, ListActivity::class.java)
                 startActivity(intent)
                 activity?.finish()
@@ -94,7 +94,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun requestLogin() {
-        viewModel.requestSignIn(binding.tietEmail.text.toString(),
+        viewModel.requestLogin(binding.tietEmail.text.toString(),
             binding.tietPassword.text.toString())
     }
 
