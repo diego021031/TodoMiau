@@ -16,6 +16,7 @@ google-services = "4.4.2"
 firebase = "33.11.0"
 hilt = "2.56.2"
 hilt-plugin = "2.48"
+safeargs = "2.9.0"
 
 
 [libraries]
@@ -36,11 +37,15 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt"}
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt"}
 
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 google-services-plugin = { id = "com.google.gms.google-services", version.ref = "google-services" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 kapt = { id = "kotlin-kapt" }
+safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeargs" }
+
+
 
 
